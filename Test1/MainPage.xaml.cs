@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,6 +30,9 @@ namespace ZumbachPi
         public MainPage()
         {
             this.InitializeComponent();
+
+            TestSDCard();
+
             blnZumbachDisplayed = false;
             btnConnect.Visibility = Visibility.Collapsed;
             tbOff.Visibility = Visibility.Collapsed;
@@ -37,6 +42,31 @@ namespace ZumbachPi
 
 
           
+        }
+
+        private async void  TestSDCard()
+        {
+            StorageFolder externalDevices = Windows.Storage.KnownFolders.RemovableDevices;
+
+            StorageFolder sdCard = (await externalDevices.GetFoldersAsync()).FirstOrDefault();
+            if(sdCard != null)
+            {
+               List<StorageFile> files = (await sdCard.GetFilesAsync()).ToList();
+                foreach(StorageFile file in files)
+                {
+                    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        listFiles.Items.Add(file.Name);
+                        //view1.Navigate(targetUri);
+                        //tbTime.Visibility = Visibility.Collapsed;
+                        //view1.NavigationFailed += View1_NavigationFailed;
+                    });
+                }
+            }
+            else
+            {
+                
+            }
         }
 
         private void View1_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)

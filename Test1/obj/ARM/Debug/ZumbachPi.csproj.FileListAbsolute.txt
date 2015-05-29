@@ -254,3 +254,5 @@ c:\users\bgree\documents\visual studio 2015\Projects\Test1\Test1\obj\ARM\Debug\A
 c:\users\bgree\documents\visual studio 2015\Projects\Test1\Test1\obj\ARM\Debug\AppLocalNetFXResources\empty.pri.resfiles
 c:\users\bgree\documents\visual studio 2015\Projects\Test1\Test1\obj\ARM\Debug\AppLocalNetFXResources\applocalnetfxresources.resfiles
 c:\users\bgree\documents\visual studio 2015\Projects\Test1\Test1\obj\ARM\Debug\AppLocalNetFXResources\priconfig.netfx.xml
+C:\Users\bgree\Documents\Visual Studio 2015\Projects\Test1\Test1\bin\ARM\Debug\Core\ZumbachPi.csproj.AppLocalNetFX.GenerateResource.Cache
+C:\Users\bgree\Documents\Visual Studio 2015\Projects\Test1\Test1\obj\ARM\Debug\ZumbachPi.csprojResolveAssemblyReference.cache

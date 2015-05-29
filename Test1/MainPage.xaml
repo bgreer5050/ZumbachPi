@@ -10,6 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <WebView Name="view1" Width="1200" Height="800" />
+            <ListView Name="listFiles" />
             <TextBlock Name="tbOff">The Zumbach Is Off!</TextBlock>
             <TextBlock x:Name="tbTime" TextWrapping="Wrap" Text="TextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="160" Opacity="0.75" >
                 <TextBlock.Foreground>

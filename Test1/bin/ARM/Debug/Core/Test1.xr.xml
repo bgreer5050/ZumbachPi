@@ -22,6 +22,9 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Name" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Name" />
       <RootProperty Name="Inlines" />
