@@ -31,7 +31,7 @@ namespace ZumbachPi
         {
             this.InitializeComponent();
 
-            TestSDCard();
+           // TestSDCard();
 
             blnZumbachDisplayed = false;
             btnConnect.Visibility = Visibility.Collapsed;

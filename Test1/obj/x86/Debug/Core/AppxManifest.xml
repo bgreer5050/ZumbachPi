@@ -10,7 +10,7 @@
   <Identity Name="d6868563-6542-4934-8074-8002e880f26f" Publisher="CN=bgree" Version="1.0.0.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="d6868563-6542-4934-8074-8002e880f26f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Test1</DisplayName>
+    <DisplayName>ZumbachPi</DisplayName>
     <PublisherDisplayName>bgree</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -21,14 +21,15 @@
     <Resource Language="EN-US" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="Test1.exe" EntryPoint="Test1.App">
-      <uap:VisualElements DisplayName="Test1" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Test1" BackgroundColor="#464646">
+    <Application Id="App" Executable="Test1.exe" EntryPoint="ZumbachPi.App">
+      <uap:VisualElements DisplayName="ZumbachPi" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="ZumbachPi" BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <uap:Capability Name="removableStorage" />
   </Capabilities>
   <build:Metadata>
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v4.5.1" />
