@@ -111,7 +111,6 @@
     <None Include="ZumbachPi_V2.0_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="iframe.html" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

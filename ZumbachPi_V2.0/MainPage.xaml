@@ -15,7 +15,7 @@
 
             <Slider Canvas.ZIndex="3" x:Name="slider" Margin="10" Minimum="1" Maximum="4" Value="1" Width ="300" ValueChanged="Slider_ValueChanged" SnapsTo="Ticks" TickFrequency="1"  />
             <ScrollViewer VerticalScrollBarVisibility="Visible">
-                <WebView x:Name="webView1" Grid.Row="1"  Height="903">
+                <WebView x:Name="webView2" Grid.Row="1"  Height="903">
                 
             </WebView>
             </ScrollViewer>

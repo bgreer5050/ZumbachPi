@@ -7,11 +7,12 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="3f4d7421-b57c-4bca-8a4f-2a4a5c9e6dd0"
+    Name="SparkPI"
     Publisher="CN=Bill"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="3f4d7421-b57c-4bca-8a4f-2a4a5c9e6dd0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  
 
   <Properties>
     <DisplayName>ZumbachPi_V2.0</DisplayName>
