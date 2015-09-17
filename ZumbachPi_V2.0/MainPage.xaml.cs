@@ -30,7 +30,6 @@ namespace ZumbachPi_V2._0
         public MainPage()
         {
             this.InitializeComponent();
-            intSliderValue = 1;
            
             this.Loaded += MainPage_Loaded;
         }
@@ -40,12 +39,12 @@ namespace ZumbachPi_V2._0
           
             Debug.WriteLine(this.Width.ToString());
             Debug.WriteLine(this.Height.ToString());
-
+            LoadWebView();
             
         }
 
 
-        private void LoadWebView(int _zoom)
+        private void LoadWebView()
         {
            
 
@@ -54,92 +53,8 @@ namespace ZumbachPi_V2._0
             sb.Append(@"<head>");
             sb.Append(@"<meta charset=""utf - 8"" />");
             sb.Append(@" <title></title>");
+           
 
-
-            switch(intSliderValue)
-            {
-                case 1:
-                    sb.Append(@"<style>
-                              #mybody {
-                            -ms-zoom: 0.75;
-                            -moz-transform: scale(0.75);
-                            -moz-transform-origin: 0 0;
-                            -o-transform: scale(0.75);
-                            -o-transform-origin: 0 0;
-                            -webkit-transform: scale(0.75);
-                            -webkit-transform-origin: 0 0;
-                        }
-                    </style>");
-                    break;
-
-                case 2:
-                    sb.Append(@"<style>
-                              #mybody {
-                            -ms-zoom: 1.00;
-                            -moz-transform: scale(1.00);
-                            -moz-transform-origin: 0 0;
-                            -o-transform: scale(1.00);
-                            -o-transform-origin: 0 0;
-                            -webkit-transform: scale(1.00);
-                            -webkit-transform-origin: 0 0;
-                        }
-                    </style>");
-                    break;
-
-                case 3:
-                    sb.Append(@"<style>
-                              #mybody {
-                            -ms-zoom: 1.50;
-                            -moz-transform: scale(1.50);
-                            -moz-transform-origin: 0 0;
-                            -o-transform: scale(1.50);
-                            -o-transform-origin: 0 0;
-                            -webkit-transform: scale(1.50);
-                            -webkit-transform-origin: 0 0;
-                        }
-                    </style>");
-                    break;
-
-                case 4:
-                    sb.Append(@"<style>
-                              #mybody {
-                            -ms-zoom: 2.00;
-                            -moz-transform: scale(2.00);
-                            -moz-transform-origin: 0 0;
-                            -o-transform: scale(2.00);
-                            -o-transform-origin: 0 0;
-                            -webkit-transform: scale(2.00);
-                            -webkit-transform-origin: 0 0;
-                        }
-                    </style>");
-                    break;
-
-                default:
-                    sb.Append(@"<style>
-                                #mybody {
-                              -ms-zoom: 1.00;
-                              -moz-transform: scale(1.00);
-                              -moz-transform-origin: 0 0;
-                              -o-transform: scale(1.00);
-                              -o-transform-origin: 0 0;
-                              -webkit-transform: scale(1.00);
-                              -webkit-transform-origin: 0 0;
-                          }
-                      </style>");
-                    break;
-            }
-
-            //        sb.Append(@"<style>
-            //          #mybody {
-            //        -ms-zoom: 1.50;
-            //        -moz-transform: scale(1.50);
-            //        -moz-transform-origin: 0 0;
-            //        -o-transform: scale(1.50);
-            //        -o-transform-origin: 0 0;
-            //        -webkit-transform: scale(1.50);
-            //        -webkit-transform-origin: 0 0;
-            //    }
-            //</style>");
 
             sb.Append(@"<style>
               #mybody {
@@ -160,11 +75,14 @@ namespace ZumbachPi_V2._0
 
             sb.Append(@"</head>");
             sb.Append(@"<body id=""mybody"" style=""margin: 0px; padding: 0px; overflow: hidden; "">");
-            sb.Append(@" <iframe id=""myiframe"" src=""http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard"" style=""width:1200px; height:1000px; overflow-X:auto; overflow-y:auto;""></iframe>");
+            sb.Append(@" <iframe id=""myiframe"" src=""http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard"" style=""width:1000; height:800px; overflow-X:auto; overflow-y:auto;""></iframe>");
             sb.Append(@"</body>");
             sb.Append(@"</html>");
 
             string mysource = sb.ToString();
+            mysource = mysource.Replace("\r", string.Empty);
+            mysource = mysource.Replace("\n", string.Empty);
+            mysource = mysource.Replace(@"\", string.Empty);
             webView2.NavigateToString(mysource);
 
             
@@ -186,7 +104,7 @@ namespace ZumbachPi_V2._0
         private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
 
-            LoadWebView(int.Parse(slider.Value.ToString()));
+          //  LoadWebView(int.Parse(slider.Value.ToString()));
             Debug.WriteLine(slider.Value.ToString());
         //    if (webView1 != null)
         //        await webView1.InvokeScriptAsync("eval", new string[] { "ZoomFunction(" + e.NewValue.ToString() + ");" });
