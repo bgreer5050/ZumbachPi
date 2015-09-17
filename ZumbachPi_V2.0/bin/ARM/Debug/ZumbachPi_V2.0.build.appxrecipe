@@ -48,6 +48,9 @@
     <AppxPackagedFile Include="C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\bin\ARM\Debug\Core\entrypoint\ZumbachPi_V2.0.exe">
       <PackagePath>entrypoint\ZumbachPi_V2.0.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\bin\ARM\Debug\Core\HTMLPage1.html">
+      <PackagePath>HTMLPage1.html</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\bin\ARM\Debug\Core\iframe.html">
       <PackagePath>iframe.html</PackagePath>
     </AppxPackagedFile>

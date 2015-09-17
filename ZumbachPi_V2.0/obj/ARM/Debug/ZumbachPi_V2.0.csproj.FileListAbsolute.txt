@@ -435,3 +435,5 @@ C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\obj\ARM\Debu
 C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\obj\ARM\Debug\Core\WinMetadata\Windows.winmd
 C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\obj\ARM\Debug\Core\resources.pri
 C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\obj\ARM\Debug\ZumbachPi_V2.0.csprojResolveAssemblyReference.cache
+C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\bin\ARM\Debug\Core\HTMLPage1.html
+C:\Users\Bill\Documents\Visual Studio 2015\ZumbachPi\ZumbachPi_V2.0\obj\ARM\Debug\Core\HTMLPage1.html
