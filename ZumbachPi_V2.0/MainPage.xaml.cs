@@ -72,87 +72,8 @@ namespace ZumbachPi_V2._0
 
             x.Wait();
 
-            //        StringBuilder sb = new StringBuilder();
-            //        sb.Append(@"<!DOCTYPE html>");
-            //        sb.Append(@"<head>");
-            //        sb.Append(@"<meta charset=""utf - 8"" />");
-            //        sb.Append(@" <title></title>");
-
-
-
-            //        sb.Append(@"<style>
-            //          #mybody {
-            //        -ms-zoom: 1.00;
-            //        -moz-transform: scale(1.00);
-            //        -moz-transform-origin: 0 0;
-            //        -o-transform: scale(1.00);
-            //        -o-transform-origin: 0 0;
-            //        -webkit-transform: scale(1.00);
-            //        -webkit-transform-origin: 0 0;
-            //    }
-            //</style>");
-
-            //        sb.Append(@"<script>");
-            //        sb.Append(@"window.scrollTo(0,500);");
-
-
-
-            //        sb.Append(@"</script>");
-
-
-            //        sb.Append(@"</head>");
-            //        sb.Append(@"<body id=""mybody"" style=""margin: 0px; width: 1200px; height:800px; padding: 0px;"">");
-            //        sb.Append(@" <iframe id=""myiframe"" src=""http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard"" style=""width:1200; height:800px; overflow-X:auto; overflow-y:auto;""></iframe>");
-            //        sb.Append(@"</body>");
-            //        sb.Append(@"</html>");
-
-            //        string mysource = sb.ToString();
-            //        mysource = mysource.Replace("\r", string.Empty);
-            //        mysource = mysource.Replace("\n", string.Empty);
-            //        mysource = mysource.Replace(@"\", string.Empty);
-
-
-
-
-
-            //        string currentDirectory = Directory.GetCurrentDirectory();
-            //        Uri uri = new Uri("file://" + currentDirectory + @"/HTMLPage1.html",UriKind.Absolute);
-            //        Uri uri2 = new Uri(@"C:/Users/DefaultAccount/AppData/Local/DevelopmentFiles/SparkPIVS.Debug_ARM.Bill/HTMLPage1.html");
-
-            //        DirectoryInfo di = new DirectoryInfo(currentDirectory);
-
-
-            //        mysource = File.ReadAllText("C:\\Users\\DefaultAccount\\AppData\\Local\\DevelopmentFiles\\SparkPIVS.Debug_ARM.Bill");
-
-            //        //FileInfo[] files = di.GetFiles();
-            //        //for(var x = 0; x < files.Length; x++)
-            //        //{
-            //        //    Debug.WriteLine(files[x].FullName);
-            //        //    //if(files[x].FullName.Contains("HTMLPage"))
-            //        //    //{
-            //        //    //    FileStream fs = new FileStream()
-            //        //    //    File.ReadAllText(files[x].) mysource = files[x].op
-            //        //    //}
-
-            //        //}
-
-            //        //foreach (File f in di.GetFiles())
-            //        //{
-
-            //        //}
-            //        //foreach(File f in currentDirectory)
-            //        //File.ReadAllText()
-
-            //        // webView2.Uri HTMLPage1.html
-
-            //        webView2.Navigate(uri2);
-            //        //NavigateToString(mysource);
-
             webView2.NavigateToString(strB.ToString());
 
-          
-
-            
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
@@ -170,7 +91,7 @@ namespace ZumbachPi_V2._0
 
         private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            Debug.WriteLine(ZumbachOnline().ToString());
+          
           //  LoadWebView(int.Parse(slider.Value.ToString()));
             Debug.WriteLine(slider.Value.ToString());
         //    if (webView1 != null)
@@ -182,7 +103,7 @@ namespace ZumbachPi_V2._0
             var tokenSource = new CancellationTokenSource();
             System.Threading.CancellationToken token = tokenSource.Token;
 
-            WebRequest request = WebRequest.Create("http://shopfloor/");
+            WebRequest request = WebRequest.Create("http://10.0.200.155/screen.htm");
 
             try
             {
