@@ -31,49 +31,86 @@ namespace ZumbachPi_V2._0
         private int intSliderValue;
         public string strZoomLevel;
 
+        public bool blnZumbachOn = false;
+
+        private System.Threading.Timer timer;
+        private Timer timerCheckEveryTenSeconds;
+        private Timer timerCheckEveryFiveMinutes;
+
         public MainPage()
         {
             this.InitializeComponent();
-           
             this.Loaded += MainPage_Loaded;
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-          
             Debug.WriteLine(this.Width.ToString());
             Debug.WriteLine(this.Height.ToString());
-            LoadWebView();
-            
+            timerCheckEveryTenSeconds = new Timer(LoadWebView, null, 5000, 5000);
+            timerCheckEveryFiveMinutes = new Timer(LoadWebView, new object(), 10000, 30000);
         }
 
 
-        private void LoadWebView()
+        private void LoadWebView(object obj)
         {
-            StorageFile file;
-            StringBuilder strB = new StringBuilder();
-
-
-            Task x = Task.Run(() =>
+            if (obj == null && blnZumbachOn == false)
             {
-                try
+                Debug.WriteLine("Checking");
+
+                StorageFile file;
+                StringBuilder strB = new StringBuilder();
+
+                if (ZumbachOnline() == true)
                 {
-                    StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                    file =  folder.GetFileAsync("MyWebPage.html").AsTask().Result; // GetItemsAsync().AsTask().Result;
-                    Stream stream = file.OpenStreamForReadAsync().Result;
-                    StreamReader reader = new StreamReader(stream);
-                    strB.Append(reader.ReadToEndAsync().Result);
+
+                    Task x = Task.Run(() =>
+                    {
+                        try
+                        {
+                            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                            file = folder.GetFileAsync("MyWebPage.html").AsTask().Result; // GetItemsAsync().AsTask().Result;
+                        Stream stream = file.OpenStreamForReadAsync().Result;
+                            StreamReader reader = new StreamReader(stream);
+                            strB.Append(reader.ReadToEndAsync().Result);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw;
+                        }
+                    });
+
+                    x.Wait();
                 }
-                catch (Exception ex)
+
+                else
                 {
-                    throw;
+                    Task x = Task.Run(() =>
+                    {
+                        try
+                        {
+                            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                            file = folder.GetFileAsync("ZumbachOff.html").AsTask().Result; // GetItemsAsync().AsTask().Result;
+                        Stream stream = file.OpenStreamForReadAsync().Result;
+                            StreamReader reader = new StreamReader(stream);
+                            strB.Append(reader.ReadToEndAsync().Result);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw;
+                        }
+                    });
+
+                    x.Wait();
+
                 }
-            });
 
-            x.Wait();
-
-            webView2.NavigateToString(strB.ToString());
-
+                webView2.NavigateToString(strB.ToString());
+            }
+            else
+            {
+                Debug.WriteLine("NOT Checking");
+            }
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
