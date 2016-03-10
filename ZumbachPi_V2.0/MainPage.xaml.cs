@@ -61,7 +61,8 @@ namespace ZumbachPi_V2._0
                 StorageFile file;
                 StringBuilder strB = new StringBuilder();
 
-                if (ZumbachOnline() == true)
+                //if (ZumbachOnline() == true)
+                if(true)
                 {
 
                     Task x = Task.Run(() =>
@@ -73,6 +74,38 @@ namespace ZumbachPi_V2._0
                         Stream stream = file.OpenStreamForReadAsync().Result;
                             StreamReader reader = new StreamReader(stream);
                             strB.Append(reader.ReadToEndAsync().Result);
+
+                            strB.Clear();
+
+                            strB.Append(@"<!DOCTYPE html>");
+
+                            strB.Append(@"<html>");
+                            strB.Append(@"<head>");
+                            strB.Append(@"<meta charset='utf - 8' />");
+                            strB.Append(@"<title></title>");
+                            strB.Append("@<style>");
+
+                            strB.Append(@"#mybody {");
+                            strB.Append(@"-ms-zoom: 1.00;");
+                            strB.Append(@"-moz-transform: scale(1.00);");
+                            strB.Append(@"-moz-transform-origin: 0 0;");
+                            strB.Append(@"-o-transform: scale(1.00);");
+                            strB.Append(@"-o-transform-origin: 0 0;");
+                            strB.Append(@"-webkit-transform: scale(1.00);");
+                            strB.Append(@"-webkit-transform-origin: 0 0;");
+                            strB.Append(@"}");
+
+
+                            strB.Append(@"</style>");
+                            strB.Append(@"<script>window.scrollTo(0,500);</script>");
+                            strB.Append(@"</head>");
+                            strB.Append("<body id=\"mybody\" style=\"margin: 0px; width: 1200px; height: 800px; padding: 0px; \">");
+                            strB.Append("<iframe id=\"myiframe\" src=\"http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard\" style=\"width: 1200px; height: 800px; overflow - X:auto; overflow - y:auto; \">");
+                            strB.Append(@"</iframe>");
+                            strB.Append(@"</body>");
+                            strB.Append(@"</html>");
+
+
                         }
                         catch (Exception ex)
                         {
