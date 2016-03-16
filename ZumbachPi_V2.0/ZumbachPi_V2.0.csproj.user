@@ -10,5 +10,6 @@
     <RemoteDebugEnabled>true</RemoteDebugEnabled>
     <RemoteDebugMachine>10.0.199.115</RemoteDebugMachine>
     <UseAuthentication>false</UseAuthentication>
+    <AuthenticationMode>None</AuthenticationMode>
   </PropertyGroup>
 </Project>

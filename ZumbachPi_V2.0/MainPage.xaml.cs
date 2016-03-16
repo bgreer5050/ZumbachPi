@@ -69,11 +69,6 @@ namespace ZumbachPi_V2._0
                     {
                         try
                         {
-                            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                            file = folder.GetFileAsync("MyWebPage.html").AsTask().Result; // GetItemsAsync().AsTask().Result;
-                        Stream stream = file.OpenStreamForReadAsync().Result;
-                            StreamReader reader = new StreamReader(stream);
-                            strB.Append(reader.ReadToEndAsync().Result);
 
                             strB.Clear();
 
