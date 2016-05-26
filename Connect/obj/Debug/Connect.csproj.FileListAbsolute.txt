@@ -1,0 +1,7 @@
+C:\Users\admin\OneDrive\Repos\ZumbachPi\ZumbachPi\Connect\bin\Debug\Connect.exe.config
+C:\Users\admin\OneDrive\Repos\ZumbachPi\ZumbachPi\Connect\bin\Debug\Connect.exe
+C:\Users\admin\OneDrive\Repos\ZumbachPi\ZumbachPi\Connect\bin\Debug\Connect.pdb
+C:\Users\admin\OneDrive\Repos\ZumbachPi\ZumbachPi\Connect\bin\Debug\System.Management.Automation.dll
+C:\Users\admin\OneDrive\Repos\ZumbachPi\ZumbachPi\Connect\obj\Debug\Connect.csprojResolveAssemblyReference.cache
+C:\Users\admin\OneDrive\Repos\ZumbachPi\ZumbachPi\Connect\obj\Debug\Connect.exe
+C:\Users\admin\OneDrive\Repos\ZumbachPi\ZumbachPi\Connect\obj\Debug\Connect.pdb

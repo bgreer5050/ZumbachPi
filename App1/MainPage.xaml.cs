@@ -22,31 +22,63 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        int x = 0;
+
         public MainPage()
         {
             Random rnd = new Random();
-            System.Threading.Timer timer = new System.Threading.Timer(UpdateUI, null, 1000, 60000);
-
+            System.Threading.Timer timer = new System.Threading.Timer(UpdateUI, null,TimeSpan.FromSeconds(1.0d),TimeSpan.FromSeconds(10.0d));
+            
             this.InitializeComponent();
 
-            Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard?x=" + rnd.NextDouble());
+            Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
             
             webView1.Navigate(uri);
+            webView1.NavigationFailed += WebView1_NavigationFailed;
 
             //Uri uri2 = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
             //webView2.Navigate(uri2);
         }
 
+        private void WebView1_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
+        {
+            webView1.NavigateToString(@"<h1>Apollo Dashboard Offline</h1>");
+        }
+
         private async void UpdateUI(object state)
         {
-            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            if(x==0)
             {
+                x = 1;
+            }
+            else
+            {
+                x = 0;
+            }
 
-                Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+            if (x == 0)
+            {
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
 
-                webView1.Navigate(uri);
+                    Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+
+                    webView1.Navigate(uri);
+                    //webView1.Refresh();
+                });
+            }
+            else
+            {
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+
+                    Uri uri = new Uri("http://yahoo.com");
+
+                    webView1.Navigate(uri);
                 //webView1.Refresh();
             });
+            }
         }
 
         private void webView1_LoadCompleted(object sender, NavigationEventArgs e)
