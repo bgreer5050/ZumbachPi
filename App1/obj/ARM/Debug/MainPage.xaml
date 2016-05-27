@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Width="1600" Height="1200">
     <Grid HorizontalAlignment="Left" Height="1200" VerticalAlignment="Top" Width="1600">
-        <WebView x:ConnectionId='1' Name="webView1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="1200"  Width="1600"/>
+        <WebView x:ConnectionId='1' Name="webView1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="1200"  Width="1000"/>
+        <WebView x:ConnectionId='2' Name="webView2" HorizontalAlignment="Right" VerticalAlignment="Center" Height="1200"  Width="600"/>
+
     </Grid>
 
 

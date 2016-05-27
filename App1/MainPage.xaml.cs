@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -28,7 +29,7 @@ namespace App1
         public MainPage()
         {
             Random rnd = new Random();
-            timer = new System.Threading.Timer(UpdateUI, null,TimeSpan.FromSeconds(1.0d),TimeSpan.FromSeconds(120.0d));
+            timer = new System.Threading.Timer(UpdateUI, null,TimeSpan.FromSeconds(1.0d),TimeSpan.FromSeconds(60.0d));
             
             
 
@@ -40,7 +41,7 @@ namespace App1
             
             webView1.Navigate(uri);
             webView1.NavigationFailed += WebView1_NavigationFailed;
-
+            webView2.NavigationFailed += WebView1_NavigationFailed;
             //Uri uri2 = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
             //webView2.Navigate(uri2);
         }
@@ -48,20 +49,24 @@ namespace App1
         private void WebView1_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
             webView1.NavigateToString(@"<br /><br /><center><h1>Apollo Dashboard Offline</h1></center>");
+            webView2.NavigateToString(@"<br /><br /><center><h1>Apollo Dashboard Offline</h1></center>");
+
         }
 
         private async void UpdateUI(object state)
         {
+            Debug.WriteLine("UpdateUI Called");
            
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
 
                     Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
 
-                    // Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+                    Uri uri2 = new Uri("http://apollo.metal-matic.com/BedfordPark/Mills/Downtime/Dashboard");
                     // Uri uri = new Uri("http://yahoo.com");
 
                     webView1.Navigate(uri);
+                    webView2.Navigate(uri2);
                     //webView1.Refresh();
                 });
            
