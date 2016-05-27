@@ -28,15 +28,15 @@ namespace App1
         public MainPage()
         {
             Random rnd = new Random();
-            timer = new System.Threading.Timer(UpdateUI, null,TimeSpan.FromSeconds(1.0d),TimeSpan.FromSeconds(60.0d));
+            timer = new System.Threading.Timer(UpdateUI, null,TimeSpan.FromSeconds(1.0d),TimeSpan.FromSeconds(120.0d));
             
             
 
             this.InitializeComponent();
 
-            Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
+            //Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
 
-            //Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+            Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
             
             webView1.Navigate(uri);
             webView1.NavigationFailed += WebView1_NavigationFailed;
@@ -58,7 +58,7 @@ namespace App1
 
                     Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
 
-                    //         Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+                    // Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
                     // Uri uri = new Uri("http://yahoo.com");
 
                     webView1.Navigate(uri);
