@@ -22,17 +22,21 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        System.Threading.Timer timer;
         int x = 0;
 
         public MainPage()
         {
             Random rnd = new Random();
-            System.Threading.Timer timer = new System.Threading.Timer(UpdateUI, null,TimeSpan.FromSeconds(1.0d),TimeSpan.FromSeconds(10.0d));
+            timer = new System.Threading.Timer(UpdateUI, null,TimeSpan.FromSeconds(1.0d),TimeSpan.FromSeconds(60.0d));
             
+            
+
             this.InitializeComponent();
 
-            Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+            Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
+
+            //Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
             
             webView1.Navigate(uri);
             webView1.NavigationFailed += WebView1_NavigationFailed;
@@ -43,42 +47,24 @@ namespace App1
 
         private void WebView1_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
-            webView1.NavigateToString(@"<h1>Apollo Dashboard Offline</h1>");
+            webView1.NavigateToString(@"<br /><br /><center><h1>Apollo Dashboard Offline</h1></center>");
         }
 
         private async void UpdateUI(object state)
         {
-            if(x==0)
-            {
-                x = 1;
-            }
-            else
-            {
-                x = 0;
-            }
-
-            if (x == 0)
-            {
+           
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
 
-                    Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+                    Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Fabrication/Downtime/Dashboard");
+
+                    //         Uri uri = new Uri("http://apollo.metal-matic.com/BedfordPark/Conversion/Downtime/Dashboard");
+                    // Uri uri = new Uri("http://yahoo.com");
 
                     webView1.Navigate(uri);
                     //webView1.Refresh();
                 });
-            }
-            else
-            {
-                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                {
-
-                    Uri uri = new Uri("http://yahoo.com");
-
-                    webView1.Navigate(uri);
-                //webView1.Refresh();
-            });
-            }
+           
         }
 
         private void webView1_LoadCompleted(object sender, NavigationEventArgs e)
